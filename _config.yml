@@ -1,0 +1,21 @@
+name: 编程中的点
+title: 编程中的点
+description: 记录编程中的点
+meta_description: "编程中的点"
+
+markdown: kramdown
+highlighter: rouge
+
+baseurl: '/'
+
+logo: false
+paginate: 15
+permalink: /:title
+
+# Details for the RSS feed generator
+url:            'yangxuhui.github.io'
+
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-seo-tag

@@ -1,1 +1,0 @@
-> Good ideas are a dime a dozen. Making them work is oftentimes the real contribution.
