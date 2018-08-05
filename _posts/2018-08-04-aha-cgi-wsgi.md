@@ -24,8 +24,11 @@ CGI全称Common Gateway Interface，定义了服务器与服务端服务进程�
 * **CGI程序从标准输入获取HTML表单内容，通过环境变量获取URL参数和HTTP包头字段**。
 * **CGI程序将结果发送到标准输出**。
 
+> Client request -----> Web Server -----> [CGI] -----> Server side Program -----> Database 
+
 CGI的实现细节可以参考csapp中实现的一个简单的HTTP Server [tiny.c](http://csapp.cs.cmu.edu/2e/ics2/code/netp/tiny/tiny.c)
 
 ## 参考资料
 * [Common Gateway Interface](https://en.wikipedia.org/wiki/Common_Gateway_Interface)
 * [tiny.c](http://csapp.cs.cmu.edu/2e/ics2/code/netp/tiny/tiny.c)
+* [What is Common Gateway Interface (CGI)](https://stackoverflow.com/questions/2089271/what-is-common-gateway-interface-cgi)
