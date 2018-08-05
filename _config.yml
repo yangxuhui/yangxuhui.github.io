@@ -2,7 +2,7 @@ name: 编程中的点
 title: 编程中的点
 description: 记录编程中的点
 meta_description: "编程中的点"
-url: 'https://yangxuhui.github.io'
+url: '/'
 baseurl: '/'
 
 markdown: kramdown
