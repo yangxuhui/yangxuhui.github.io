@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Aha! CGI, WSGI
-date:   2018-08-03 10:00:00
+date:   2018-08-04 12:00:00
 categories: beginner
 ---
 
@@ -18,8 +18,14 @@ categories: beginner
   
 我们能想出很多方法来回答这三个问题，这样同样的功能可能在不同的服务器就不能用了。**CGI就是一种用来回答这两个问题并被业界广泛接受和认可的解决方案**。  
 
-# CGI
-CGI全称Common Gateway Interface，定义了服务器与服务端服务进程或应用程序或服务脚本的接口。
+## CGI
+CGI全称Common Gateway Interface，定义了服务器与服务端服务进程或应用程序或服务脚本的接口。具体来说，CGI描述了请求信息如何通过环境变量传给应用程序，请求包体如何通过标准输入传给应用程序，应用程序如何通过标准输出发送回应。
 
 * **CGI程序从标准输入获取HTML表单内容，通过环境变量获取URL参数和HTTP包头字段**。
 * **CGI程序将结果发送到标准输出**。
+
+CGI的实现细节可以参考csapp中实现的一个简单的HTTP Server [tiny.c](http://csapp.cs.cmu.edu/2e/ics2/code/netp/tiny/tiny.c)
+
+## 参考资料
+* [Common Gateway Interface](https://en.wikipedia.org/wiki/Common_Gateway_Interface)
+* [tiny.c](http://csapp.cs.cmu.edu/2e/ics2/code/netp/tiny/tiny.c)
