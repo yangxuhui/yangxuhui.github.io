@@ -1,22 +1,16 @@
-name: 编程中的点
-title: 编程中的点
-description: 记录编程中的点
-meta_description: "编程中的点"
-url: '/'
-baseurl: '/'
+name: Connecting the Dots
+description: You have to trust that the dots will somehow connect in your future
+meta_description: "Connecting the Dots"
 
 markdown: kramdown
-highlighter: rouge
-
+highlighter: pygments
 logo: false
 paginate: 15
-permalink: /:title
+baseurl: /
+domain_name: 'https://yangxuhui.github.io'
+google_analytics: 'UA-XXXXXXXX-X'
+gems: [jekyll-paginate]
 
 # Details for the RSS feed generator
 url:            'yangxuhui.github.io'
-
-gems:
-  - jekyll-paginate
-  - jekyll-gist
-  - jekyll-seo-tag
-theme: jekyll-theme-cayman
+# author:         'yangxuhui'

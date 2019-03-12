@@ -1,2 +1,2 @@
 # My Personal Blog
-Forked from [ewertonorg.github.io](https://github.com/ewertonorg/ewertonorg.github.io)
+Forked from [kasper](https://github.com/rosario/kasper)

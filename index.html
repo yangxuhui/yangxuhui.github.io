@@ -1,58 +1,65 @@
 ---
 layout: default
-title: 编程中的点
-description: 记录编程中的点 
+title: Connecting the Dots
 cover: false
 archives: 'archives.html'
 ---
 
-<header class="site-head" {% if page.cover %} style="background-image: url(assets/images/header.png)"{% endif%}>
-  <div class="vertical">
-    <div class="site-head-content" class="inner">
-      {% if page.logo %}
-      <a class="blog-logo" href="{{ site.baseurl }}">
-      <img src="{{ page.logo}}" alt="Blog Logo" />
-      </a>
-      {% endif %}
-      <h1 class="blog-title">{{ site.name}}</h1>
-      <h2 class="blog-description"> 
-      {{ site.description }}
-      </h2>
-      {% if page.archives %} <a href='{{ site.baseurl }}{{ page.archives }}'>文章存档</a>{% endif %}
+<header class="main-header {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
+    <nav class="main-nav overlay clearfix">
+            {% if page.logo %}
+                <a class="blog-logo" href="{{ site.baseurl }}">
+                    <img src="{{ page.logo }}" alt="Blog Logo" />
+                </a>
+            {% endif %}
+        <a class="subscribe-button icon-feed" href="{{ site.baseurl }}feed.xml">Subscribe</a>
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">{{ site.name }}</h1>
+            <h2 class="page-description">
+                {% if site.description %} {{ site.description }}. {% endif %}
+                {% if page.about %} <a href='{{ site.baseurl }}{{ page.about }}'> About me </a> {% endif %}
+                {% if page.archives %} <a href='{{ site.baseurl }}{{ page.archives }}'> Archives </a> {% endif %}
+            </h2>
+        </div>
     </div>
-  </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
-<main class="content" role="main">
 
-  {% for post in paginator.posts %}
+<main id="content" class="content" role="main">
 
-  <article class="post">
-    <header class="post-header">
-        <span class="post-meta"><time datetime="{{ post.date | date_to_string }}">{{ post.date | date_to_string }}</time></span>
-        <h2 class="post-title"><a href="{{ post.url}}">{{ post.title }}</a></h2>
 
-    </header>
-    <section class="post-excerpt">
-        {{post.excerpt}}
-    </section>
-  </article>
+    <div class="extra-pagination inner">
+        {% include pagination.html %}
+    </div>
 
-  {% endfor %}
+    {% for post in paginator.posts %}
 
-  <nav class="pagination" role="pagination">
-    {% if paginator.previous_page %}
-      {% if paginator.previous_page == 1 %}
-      <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
-      {% else %}
-      <a class="newer-posts" href="/page{{ paginator.previous_page }}/" title="Previous Page">&laquo; Newer Posts</a>
-      {% endif %}
-    {% endif %}
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        </header>
+        <section class="post-excerpt">
+            {{ post.excerpt }} <a class="read-more" href="{{ post.url }}">&raquo;</a>
+        </section>
+        <footer class="post-meta">
+            {% if site.author %}
+                <img class="author-thumb" src="/assets/images/profile.png" alt="Author's profile picture" nopin="nopin" />
+                {{ site.author }}
+            {% endif %}
+            {% if post.categories.size > 0 %} 
+                {{ post.categories | array_to_sentence_string }} 
+            {% endif %}
+            <time class="post-date" datetime="{{ post.date | date:"%Y-%m-%d" }}">
+                {{ post.date | date_to_string }}
+            </time> 
+        </footer>
+    </article>
 
-    <span class="page-number"> Page {{paginator.page}} of {{paginator.total_pages}} </span>
+    {% endfor %}
 
-    {% if paginator.next_page %} 
-    <a class="older-posts" href="/page{{ paginator.next_page }}/" title="Next Page">Older Posts &raquo;</a>
-    {% endif %} 
-  </nav>
+    {% include pagination.html %}
+
 </main>
